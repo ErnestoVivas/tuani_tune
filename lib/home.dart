@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sound_recorder_manager.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -22,6 +23,15 @@ class _HomeState extends State<Home> {
           Text('Bass'),
           Text('Violin'),
           Text('Custom'),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SoundRecorderManager()),
+              );
+            },
+            child: const Text('Graba tu voz!'),
+          ),
         ],
       ),
     );
