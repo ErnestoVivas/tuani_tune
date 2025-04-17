@@ -8,7 +8,7 @@ class TuaniTune extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    title: "Tunaitune",
+    title: "TuaniTune",
       home: Home(),
     );
   }
@@ -25,6 +25,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  ElevatedButton _openTunerButton(
+      Function onPressed, IconData icon, String label) {
+    return ElevatedButton(
+      onPressed: () => onPressed(),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: Colors.blue),
+          SizedBox(width: 8),
+          Text(label, textAlign: TextAlign.center),
+        ],
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,83 +57,47 @@ class _HomeState extends State<Home> {
         child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Color.fromRGBO(153, 233, 242, 1.0), // Color del borde
-            width: 2.0, // Grosor del border),
+            color: Color.fromRGBO(153, 233, 242, 1.0),
+            width: 2.0,
           ),
           borderRadius:BorderRadius.circular(16),
         ),
-        margin: EdgeInsets.all(16), // Margen de 16 en todos los lados
+        margin: EdgeInsets.all(16),
         padding: EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: <Widget> [
-            ElevatedButton(
-              onPressed: () => print('Chromatic pressed'),
-              child: Row(
-                mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                children: [
-                  Icon(Icons.graphic_eq, color: Colors.blue), // Ícono,
-                  SizedBox(width: 8), // Espacio entre ícono y texto
-                  Text('Chromatic', textAlign: TextAlign.center),
-                ],
-              )
+            _openTunerButton(
+              () => debugPrint('Chromatic pressed'),
+              Icons.graphic_eq,
+              'Chromatic',
             ),
-            ElevatedButton(
-              onPressed: () => print('Guitar pressed'),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                  children: [
-                    Icon(Icons.play_arrow, color: Colors.blue), // Ícono,
-                    SizedBox(width: 8), // Espacio entre ícono y texto
-                    Text('Guitar', textAlign: TextAlign.center),
-                  ],
-                )
+            _openTunerButton(
+              () => debugPrint('Guitar pressed'),
+              Icons.play_arrow,
+              'Guitar',
             ),
-            ElevatedButton(
-              onPressed: () => print('Ukelele pressed'),
-                child :Row(
-                  mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                  children: [
-                    Icon(Icons.speed, color: Colors.blue), // Ícono,
-                    SizedBox(width: 8), // Espacio entre ícono y texto
-                    Text('Ukulele', textAlign: TextAlign.center),
-                  ],
-                )
+            _openTunerButton(
+              () => debugPrint('Ukelele pressed'),
+              Icons.speed,
+              'Ukulele',
             ),
-            ElevatedButton(
-              onPressed: () => print('Bass pressed'),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                  children: [
-                    Icon(Icons.tune, color: Colors.blue), // Ícono,
-                    SizedBox(width: 8), // Espacio entre ícono y texto
-                    Text('Bass', textAlign: TextAlign.center),
-                  ],
-                )
+            _openTunerButton(
+              () => debugPrint('Bass pressed'),
+              Icons.tune,
+              'Bass',
             ),
-            ElevatedButton(
-              onPressed: () => print('Violin pressed'),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                  children: [
-                    Icon(Icons.library_add_check, color: Colors.blue), // Ícono,
-                    SizedBox(width: 8), // Espacio entre ícono y texto
-                    Text('Violin', textAlign: TextAlign.center),
-                  ],
-                )
+            _openTunerButton(
+              () => debugPrint('Violin pressed'),
+              Icons.library_add_check,
+              'Violin',
             ),
-            ElevatedButton(
-              onPressed: () => print('Custom pressed'),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min, // Ajusta el tamaño al contenido
-                  children: [
-                    Icon(Icons.radio, color: Colors.blue), // Ícono,
-                    SizedBox(width: 8), // Espacio entre ícono y texto
-                    Text('Custom', textAlign: TextAlign.center),
-                  ],
-                )
+            _openTunerButton(
+              () => debugPrint('Custom pressed'),
+              Icons.radio,
+              'Custom',
             ),
           ],
         ),
